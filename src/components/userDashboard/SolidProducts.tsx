@@ -13,26 +13,26 @@ export default function NewEmployes(props: NewEmployesProps) {
   const { solidProductsData1, solidProductsData2, increaseSolidRate } = props;
 
   return (
-    <Card className="bg-black border-gray-700 border-2">
+    <Card className="bg-black border-gray-700 border-2 w-full max-w-full">
       <CardHeader className="">
-        <div className="flex justify-between items-center">
-          <CardTitle className="text-white text-xl font-normal">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+          <CardTitle className="text-white text-lg sm:text-xl font-normal">
             Solid Products
           </CardTitle>
-          <span className="text-white text-xl">Mar - Jan 2022</span>
+          <span className="text-white text-xs sm:text-xl">Mar - Jan 2022</span>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="relative w-40 h-40 flex">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+          <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex">
             <ResponsiveContainer>
               <PieChart>
                 <Pie
                   data={solidProductsData1}
                   cx="50%"
                   cy="50%"
-                  innerRadius={35}
-                  outerRadius={45}
+                  innerRadius={20}
+                  outerRadius={30}
                   startAngle={90}
                   endAngle={330}
                   dataKey="value"
@@ -43,20 +43,19 @@ export default function NewEmployes(props: NewEmployesProps) {
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
-            <span className="absolute top-10 right-0 text-white text-xl w-16">
+            <span className="absolute top-6 right-0 text-white text-xs sm:text-xl w-12 sm:w-16">
               + {increaseSolidRate ? increaseSolidRate[0] : "0"}%
             </span>
           </div>
-
-          <div className="relative w-40 h-40 flex">
+          <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex">
             <ResponsiveContainer>
               <PieChart>
                 <Pie
                   data={solidProductsData2}
                   cx="50%"
                   cy="50%"
-                  innerRadius={35}
-                  outerRadius={45}
+                  innerRadius={20}
+                  outerRadius={30}
                   startAngle={90}
                   endAngle={300}
                   dataKey="value"
@@ -67,11 +66,11 @@ export default function NewEmployes(props: NewEmployesProps) {
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
-            <span className="absolute top-10 right-0 text-white text-xl w-16">
+            <span className="absolute top-6 right-0 text-white text-xs sm:text-xl w-12 sm:w-16">
               + {increaseSolidRate ? increaseSolidRate[1] : "0"}%
             </span>
           </div>
-          <Button className="bg-white hover:bg-white text-black font-medium rounded py-4">
+          <Button className="bg-white hover:bg-white text-black font-medium rounded py-2 sm:py-4 text-xs sm:text-base">
             JavaScript
           </Button>
         </div>
