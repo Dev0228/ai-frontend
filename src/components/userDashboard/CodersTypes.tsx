@@ -11,8 +11,8 @@ export default function CodersTypes(props: CodersTypesProps) {
   const { codersTypeData } = props;
 
   return (
-    <Card className="bg-black border-gray-700 border-2 w-full max-w-full">
-      <CardHeader className="pb-2">
+    <Card className="bg-black border-gray-700 border-2 w-full h-full flex flex-col">
+      <CardHeader className="pb-2 flex-shrink-0">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <CardTitle className="text-gray-400 text-lg sm:text-xl font-normal">
             Coders types
@@ -27,7 +27,7 @@ export default function CodersTypes(props: CodersTypesProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1 flex">
         <div className="w-full h-40 sm:h-52 md:h-60">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart

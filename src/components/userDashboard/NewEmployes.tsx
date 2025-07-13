@@ -18,8 +18,8 @@ export default function SolidProducts(props: SolidProductsProps) {
   const { normalData } = props;
 
   return (
-    <Card className="bg-black border-gray-700 border-2 gap-0 w-full max-w-full">
-      <CardHeader className="">
+    <Card className="bg-black border-gray-700 border-2 gap-0 w-full h-full flex flex-col">
+      <CardHeader className="flex-shrink-0">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-8 gap-2 sm:gap-0">
           <CardTitle className="text-gray-400 text-lg sm:text-xl font-normal">
             New Employes
@@ -40,7 +40,7 @@ export default function SolidProducts(props: SolidProductsProps) {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1 flex flex-col">
         <div className="w-full h-52 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart layout="vertical" data={normalData} barCategoryGap={10}>

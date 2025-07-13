@@ -13,8 +13,8 @@ export default function LastIncome(props: LastIncomeProps) {
   const { lastIncomeData, increaseIncomeRate, increaseIncomeValue } = props;
 
   return (
-    <Card className="bg-black border-gray-700 border-2 w-full max-w-full">
-      <CardHeader className="pb-2">
+    <Card className="bg-black border-gray-700 border-2 w-full h-full flex flex-col">
+      <CardHeader className="pb-2 flex-shrink-0">
         <div className="flex justify-between items-center">
           <CardTitle className="text-gray-400 text-lg sm:text-xl font-normal">
             Last Income
@@ -24,7 +24,7 @@ export default function LastIncome(props: LastIncomeProps) {
           </span>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="flex-1 flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row justify-between pb-4 sm:pb-8 gap-4 sm:gap-0">
           <div>
             <div

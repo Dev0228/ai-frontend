@@ -10,8 +10,8 @@ interface NormalsChartProps {
 export default function NormalsChart(props: NormalsChartProps) {
   const { normalData, increaseNormalRate } = props;
   return (
-    <Card className="bg-black border-gray-700 border-2 gap-0 w-full max-w-full">
-      <CardHeader className="">
+    <Card className="bg-black border-gray-700 border-2 gap-0 w-full h-full flex flex-col">
+      <CardHeader className="flex-shrink-0">
         <div className="flex justify-between items-center">
           <CardTitle className="text-gray-400 text-lg sm:text-xl font-normal">
             Normals Chart
@@ -21,7 +21,7 @@ export default function NormalsChart(props: NormalsChartProps) {
           </span>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1 flex">
         <div className="w-full h-40 sm:h-60">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart

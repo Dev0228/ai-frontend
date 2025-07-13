@@ -13,8 +13,8 @@ export default function NewEmployes(props: NewEmployesProps) {
   const { solidProductsData1, solidProductsData2, increaseSolidRate } = props;
 
   return (
-    <Card className="bg-black border-gray-700 border-2 w-full max-w-full">
-      <CardHeader className="">
+    <Card className="bg-black border-gray-700 border-2 w-full h-full flex flex-col">
+      <CardHeader className="flex-shrink-0">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <CardTitle className="text-white text-lg sm:text-xl font-normal">
             Solid Products
@@ -22,7 +22,7 @@ export default function NewEmployes(props: NewEmployesProps) {
           <span className="text-white text-xs sm:text-xl">Mar - Jan 2022</span>
         </div>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="flex-1 flex flex-col space-y-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           <div className="relative w-28 h-28 sm:w-40 sm:h-40 flex">
             <ResponsiveContainer>
