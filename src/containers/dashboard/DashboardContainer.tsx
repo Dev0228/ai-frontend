@@ -27,7 +27,7 @@ export default function DashboardContainer() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col">
       {/* Header with logout button */}
       <div className="bg-gray-800 border-b border-gray-700 px-6 py-4 flex-shrink-0">
         <div className="max-w-7xl mx-auto flex justify-between items-center">

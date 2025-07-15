@@ -18,7 +18,7 @@ export default function Login({
   onSubmit,
 }: LoginProps) {
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="bg-black border-gray-700 border-2 w-full max-w-md rounded-lg p-6">
         <h2 className="text-gray-400 text-lg sm:text-xl font-normal mb-6">
           Welcome Back

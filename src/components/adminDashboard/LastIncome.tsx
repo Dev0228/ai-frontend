@@ -39,10 +39,10 @@ export default function LastIncome(props: LastIncomeProps) {
               <PieChart>
                 <Pie
                   data={lastIncomeData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={30}
-                  outerRadius={40}
+                  // cx="50%"
+                  // cy="50%"
+                  innerRadius={45}
+                  outerRadius={60}
                   startAngle={0}
                   endAngle={280}
                   dataKey="value"
