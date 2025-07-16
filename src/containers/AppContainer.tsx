@@ -21,11 +21,9 @@ export default function AppContainer({ children }: AppContainerProps) {
           if (response?.success && response.data?.user) {
             dispatch(setCurrentUser(response.data.user));
           } else {
-            // Token is invalid, remove it
             localStorage.removeItem("token");
           }
         } catch (error) {
-          // Token is invalid, remove it
           localStorage.removeItem("token");
         }
       }

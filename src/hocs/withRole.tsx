@@ -30,7 +30,6 @@ export const withRole = <P extends object>(
       }
     }, [token, currentUser, navigate, allowedRoles]);
 
-    // Show loading while checking auth
     if (!token || !currentUser) {
       return (
         <div className="min-h-screen bg-gray-900 flex items-center justify-center">
@@ -39,7 +38,6 @@ export const withRole = <P extends object>(
       );
     }
 
-    // Show access denied if role not allowed
     if (!allowedRoles.includes(currentUser.role)) {
       return (
         <div className="min-h-screen bg-gray-900 flex items-center justify-center">
@@ -57,7 +55,6 @@ export const withRole = <P extends object>(
   };
 };
 
-// Alternative: Function component version
 export const RoleProtectedRoute: React.FC<WithRoleProps> = ({
   children,
   allowedRoles,
@@ -101,7 +98,6 @@ export const RoleProtectedRoute: React.FC<WithRoleProps> = ({
   return <>{children}</>;
 };
 
-// Convenience HOCs for specific roles
 export const withAdmin = <P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) => withRole(WrappedComponent, ["admin"]);

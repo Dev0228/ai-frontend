@@ -21,7 +21,6 @@ export default function UserDashboardContainer() {
         setLoading(true);
         setError(null);
 
-        // Fetch all user dashboard data
         const [codersRes, employesRes, productsRes] = await Promise.all([
           getCodersTypes(),
           getNewEmployes(),

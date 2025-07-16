@@ -20,7 +20,6 @@ export default function DashboardContainer() {
       navigate("/login");
     } catch (error) {
       console.error("Logout failed:", error);
-      // Even if logout fails, clear local state and redirect
       dispatch(clearCurrentUser());
       navigate("/login");
     }
@@ -28,7 +27,6 @@ export default function DashboardContainer() {
 
   return (
     <div className="min-h-screen bg-black flex flex-col">
-      {/* Header with logout button */}
       <div className="bg-gray-800 border-b border-gray-700 px-6 py-4 flex-shrink-0">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
@@ -46,7 +44,6 @@ export default function DashboardContainer() {
         </div>
       </div>
 
-      {/* Dashboard content */}
       <div className="flex-1 flex">
         {currentUser.role === "admin" ? (
           <AdminDashboardContainer />

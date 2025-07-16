@@ -12,6 +12,13 @@ export interface LastIncomeProps {
 export default function LastIncome(props: LastIncomeProps) {
   const { lastIncomeData, increaseIncomeRate, increaseIncomeValue } = props;
 
+  const getMonthRange = () => {
+    const now = new Date();
+    return [new Date(now.getFullYear(), now.getMonth() - 8, 1), now]
+      .map((d) => d.toLocaleString("default", { month: "short" }))
+      .join(" - ");
+  };
+
   return (
     <Card className="bg-black border-gray-700 border-2 w-full h-full flex flex-col">
       <CardHeader className="pb-2 flex-shrink-0">
@@ -31,7 +38,7 @@ export default function LastIncome(props: LastIncomeProps) {
               className="bg-green-400 hover:bg-green-600 text-black font-medium px-4 py-2 rounded text-xs sm:text-base"
               style={{ backgroundColor: "#323232" }}
             >
-              Apr - Jan
+              {getMonthRange()}
             </div>
           </div>
           <div className="relative w-32 h-32 sm:w-48 sm:h-48 mx-auto">
@@ -39,8 +46,6 @@ export default function LastIncome(props: LastIncomeProps) {
               <PieChart>
                 <Pie
                   data={lastIncomeData}
-                  // cx="50%"
-                  // cy="50%"
                   innerRadius={45}
                   outerRadius={60}
                   startAngle={0}

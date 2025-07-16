@@ -36,7 +36,6 @@ export const withAuth = <P extends object>(
   };
 };
 
-// Alternative: Function component version
 export const ProtectedRoute: React.FC<WithAuthProps> = ({ children }) => {
   const navigate = useNavigate();
   const currentUser = useSelector((state: RootState) => state.auth.currentUser);

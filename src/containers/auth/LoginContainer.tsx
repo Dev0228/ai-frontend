@@ -26,7 +26,6 @@ export default function LoginContainer() {
       return;
     }
 
-    // Update Redux store with user data
     if (response.data?.user) {
       dispatch(setCurrentUser(response.data.user));
       navigate("/dashboard");

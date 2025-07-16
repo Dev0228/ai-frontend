@@ -26,7 +26,6 @@ export default function AdminDashboardContainer() {
         setLoading(true);
         setError(null);
 
-        // Fetch all admin dashboard data
         const [lastDataRes, lastIncomeRes, normalDataRes] = await Promise.all([
           getLastData(),
           getLastIncome(),
