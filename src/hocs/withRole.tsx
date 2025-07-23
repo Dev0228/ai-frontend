@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 interface WithRoleProps {
   children: React.ReactNode;
@@ -13,45 +12,11 @@ export const withRole = <P extends object>(
   allowedRoles: ("admin" | "user")[]
 ) => {
   return function WithRoleComponent(props: P) {
-    const navigate = useNavigate();
-    const currentUser = useSelector(
-      (state: RootState) => state.auth.currentUser
+    return (
+      <RoleProtectedRoute allowedRoles={allowedRoles}>
+        <WrappedComponent {...props} />
+      </RoleProtectedRoute>
     );
-    const token = localStorage.getItem("token");
-
-    useEffect(() => {
-      if (!token || !currentUser) {
-        navigate("/login");
-        return;
-      }
-
-      if (!allowedRoles.includes(currentUser.role)) {
-        navigate("/dashboard"); // Redirect to dashboard if role not allowed
-      }
-    }, [token, currentUser, navigate, allowedRoles]);
-
-    if (!token || !currentUser) {
-      return (
-        <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-          <div className="text-white">Loading...</div>
-        </div>
-      );
-    }
-
-    if (!allowedRoles.includes(currentUser.role)) {
-      return (
-        <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-          <div className="text-white text-center">
-            <h2 className="text-xl font-semibold mb-2">Access Denied</h2>
-            <p className="text-gray-400">
-              You don't have permission to access this page.
-            </p>
-          </div>
-        </div>
-      );
-    }
-
-    return <WrappedComponent {...props} />;
   };
 };
 
@@ -60,7 +25,7 @@ export const RoleProtectedRoute: React.FC<WithRoleProps> = ({
   allowedRoles,
 }) => {
   const navigate = useNavigate();
-  const currentUser = useSelector((state: RootState) => state.auth.currentUser);
+  const currentUser = useCurrentUser();
   const token = localStorage.getItem("token");
 
   useEffect(() => {
