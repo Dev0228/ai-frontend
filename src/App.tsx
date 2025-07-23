@@ -1,34 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./store";
-import AppContainer from "./containers/AppContainer";
-import IndexPage from "./pages/IndexPage";
-import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
-import { ProtectedRoute } from "./hocs/withAuth";
+import AppContainer from "./app/AppContainer";
+import { AppRoutes } from "./app/routes";
 
 function App() {
   return (
-    <Provider store={store}>
+    <div className="min-h-screen bg-gray-900 flex flex-col">
       <AppContainer>
-        <Router>
-          <div className="min-h-screen bg-gray-900 flex flex-col">
-            <Routes>
-              <Route path="/" element={<IndexPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <DashboardPage />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </Router>
+        <AppRoutes />
       </AppContainer>
-    </Provider>
+    </div>
   );
 }
 
